@@ -1,27 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ButtonGroup from './ButtonGroup'
+import BUTTONS from './Buttons'
 import './App.css';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    let w = window.innerWidth;
+    if (w > 425) {
+      return (
+        <div className="App">
+          <ButtonGroup>
+            {
+              BUTTONS.map((item, i) => {
+                return (
+                  <button
+                    key={i}
+                    type="button"
+                    className="btn btn-secondary"
+                  >
+                    {item}
+                  </button>
+                )
+              })
+            }
+          </ButtonGroup>
+        </div>
+      )
+    } else {
+      return (
+        <div className="App">
+          {
+            BUTTONS.map((item, i) => {
+              return (
+                <div>
+                  <ButtonGroup key={i}>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                    >
+                      {item}
+                    </button>
+                  </ButtonGroup>
+                </div>
+              )
+            })
+          }
+        </div>
+      )
+    }
   }
 }
 
