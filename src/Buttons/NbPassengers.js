@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class NbPassengers extends Component {
   constructor(props) {
@@ -15,7 +15,9 @@ export default class NbPassengers extends Component {
         nbPassengers
       })
     } else {
-      nbPassengers -= 1
+      if (nbPassengers > 1) {
+        nbPassengers -= 1
+      }
       this.setState({
         nbPassengers
       })

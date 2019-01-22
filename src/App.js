@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import ButtonGroup from './ButtonGroup'
 import BUTTONS from './Buttons'
 import './App.css';
@@ -11,10 +11,10 @@ class App extends Component {
         <div className="App">
           <ButtonGroup>
             {
-              BUTTONS.map((item, i) => {
+              BUTTONS.map((item, key) => {
                 return (
                   <button
-                    key={i}
+                    key={key}
                     type="button"
                     className="btn btn-secondary"
                   >
@@ -30,10 +30,10 @@ class App extends Component {
       return (
         <div className="App">
           {
-            BUTTONS.map((item, i) => {
+            BUTTONS.map((item, key) => {
               return (
-                <div>
-                  <ButtonGroup key={i}>
+                <div key={key}>
+                  <ButtonGroup>
                     <button
                       type="button"
                       className="btn btn-secondary"
