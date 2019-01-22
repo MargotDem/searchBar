@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import NbPassengers from './Buttons/NbPassengers'
 import Search from './Buttons/Search'

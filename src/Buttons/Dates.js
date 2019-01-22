@@ -22,19 +22,19 @@ class DateComponent extends Component {
 
     return (
       <div className="dropdown">
-        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {
             selectedDay
             ? <span>{selectedDay.toLocaleDateString()}</span>
             : <span>{date}</span>
           }
-        </button>
+        </span>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <DayPicker onDayClick={this.handleDayClick} />
           {
-            oneWayTicket && <button onClick={() => { this.handleDayClick(undefined) }}>
-              "One way ticket"
-            </button>
+            oneWayTicket && <span onClick={() => { this.handleDayClick(undefined) }}>
+              One way ticket
+            </span>
           }
         </div>
       </div>
