@@ -10,3 +10,7 @@
 .ButtonGroup {
   display: block;
 }
+
+.highlighted {
+  background: orange;
+}

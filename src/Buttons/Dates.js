@@ -16,6 +16,10 @@ class DateComponent extends Component {
   render () {
     let { selectedDay } = this.state
     let { date, oneWayTicket } = this.props
+    // const modifiers = {
+    //   highlighted: new Date(2019, 1, 23),
+    // }
+
     return (
       <div className="dropdown">
         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
