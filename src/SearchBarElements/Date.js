@@ -9,14 +9,19 @@ export default class DepartureDate extends Component {
     this.state = { selectedDay: new window.Date() }
   }
 
-  handleDayClick(day) {
-    this.setState({ selectedDay: day })
+  handleDayClick(selectedDay) {
+    let date = new window.Date()
+    date.setDate(date.getDate() - 1)
+    if (selectedDay > date) {
+      this.setState({ selectedDay })
+    }
   }
 
   render () {
     let { selectedDay } = this.state
     const modifiers  = {
-      disabled: { before: new window.Date() }
+      disabled: { before: new window.Date() },
+      picked: selectedDay
     }
 
     return (

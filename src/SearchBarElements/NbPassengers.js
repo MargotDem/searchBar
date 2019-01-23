@@ -21,8 +21,8 @@ export default class NbPassengers extends Component {
 
   render () {
     let { nbPassengers } = this.state
-    let minusDisabled = nbPassengers == 1
-    let plusDisabled = nbPassengers == 10
+    let minusDisabled = nbPassengers === 1
+    let plusDisabled = nbPassengers === 10
 
     return (
       <div className='input-wrap fourth'>

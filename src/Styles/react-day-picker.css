@@ -150,7 +150,7 @@
 
 /* Default modifiers */
 
-.DayPicker-Day--today {
+.DayPicker-Day--picked {
   color: #D0021B;
   font-weight: 700;
 }
