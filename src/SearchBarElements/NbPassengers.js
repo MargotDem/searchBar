@@ -3,47 +3,40 @@ import React, { Component } from 'react'
 export default class NbPassengers extends Component {
   constructor(props) {
     super(props)
-    this.state = ({ nbPassengers: 1})
+    this.state = ({ nbPassengers: 1 })
     this.countPassengers = this.countPassengers.bind(this)
   }
 
   countPassengers (increment) {
     let { nbPassengers } = this.state
-    if (increment) {
+    if (increment && nbPassengers < 10) {
       nbPassengers += 1
-      this.setState({
-        nbPassengers
-      })
-    } else {
-      if (nbPassengers > 1) {
-        nbPassengers -= 1
-      }
-      this.setState({
-        nbPassengers
-      })
+      this.setState({ nbPassengers })
+    }
+    if (!increment && nbPassengers > 1) {
+      nbPassengers -= 1
+      this.setState({ nbPassengers })
     }
   }
 
   render () {
     let { nbPassengers } = this.state
-    return (
+    let minusDisabled = nbPassengers == 1
+    let plusDisabled = nbPassengers == 10
 
-      <div class="input-wrap fourth">
-        <div class="input-field fourth">
+    return (
+      <div className='input-wrap fourth'>
+        <div className='input-field fourth'>
           <label>Passengers</label>
             <span
               onClick={() => { this.countPassengers(false) }}
-              class="fas fa-minus-circle"
+              className={'fa fa-minus-circle ' + (minusDisabled && 'passengers-btn-disabled')}
             >
             </span>
-            &nbsp;
-            &nbsp;
-            <span>{nbPassengers}</span>
-            &nbsp;
-            &nbsp;
+            {nbPassengers}
             <span
               onClick={() => { this.countPassengers(true) }}
-              class="fas fa-plus-circle"
+              className={'fa fa-plus-circle ' + (plusDisabled && 'passengers-btn-disabled')}
             >
             </span>
         </div>

@@ -6,7 +6,7 @@ class City extends Component {
   constructor (props) {
     super(props)
     this.state = ({
-      city: null,
+      inputValue: null,
       cities: null
     })
     this.handleChange = this.handleChange.bind(this)
@@ -15,7 +15,7 @@ class City extends Component {
 
   handleChange (inputValue) {
     this.autoComplete(inputValue)
-    this.setState({ city: inputValue })
+    this.setState({ inputValue })
   }
 
   autoComplete (input) {
@@ -23,11 +23,6 @@ class City extends Component {
       key: 'ImBuildingASearchBar',
       locale: 'fr',
       term: input
-    }, {
-      proxy: {
-	  host: 'wtf',
-	  port: 'wtf'
-	}
     })
     .then(response => {
       console.log(response)
@@ -39,37 +34,43 @@ class City extends Component {
         { i: 1, value: 'Paris'},
         { i: 2, value: 'Lyon'},
         { i: 3, value: 'Marseille'},
-        { i: 4, value: 'Nantes'}
+        { i: 4, value: 'Nantes'},
+        { i: 5, value: 'Toulouse'},
+        { i: 6, value: 'Nice'},
+        { i: 7, value: 'Strasbourg'}
       ]
       this.setState({ cities: data })
     })
   }
 
   render () {
-    let { arrivalOrDeparture } = this.props
     let items = this.state.cities
     return (
-        <Downshift
-          onChange={(selection) => { this.handleChange(selection.value)}}
-          itemToString={item => (item ? item.value : '')}
-          onInputValueChange={(inputValue) => this.handleChange(inputValue)}
-        >
-          {
-            ({
-              getInputProps,
-              getItemProps,
-              isOpen,
-              inputValue,
-              highlightedIndex,
-              selectedItem,
-            }) => (
-              <div>
-                <input
-                  {...getInputProps()}
-                  placeholder={'...'}
-                />
-                  {isOpen
-                    ? items && items
+      <Downshift
+        onChange={(selection) => { this.handleChange(selection.value)}}
+        itemToString={item => (item ? item.value : '')}
+        onInputValueChange={(inputValue) => this.handleChange(inputValue)}
+      >
+        {
+          ({
+            getInputProps,
+            getItemProps,
+            isOpen,
+            inputValue,
+            highlightedIndex,
+            selectedItem,
+          }) => (
+            <div>
+              <input
+                className='city-input'
+                {...getInputProps()}
+                placeholder={'...'}
+              />
+                {
+                  isOpen
+                  ? items && <div className='cities-dropdown'>
+                    {
+                      items
                         .filter(item => !inputValue || item.value.toLowerCase().includes(inputValue))
                         .map((item, index) => (
                           <div
@@ -78,16 +79,21 @@ class City extends Component {
                               index,
                               item,
                               style: {
-                                backgroundColor:
-                                  highlightedIndex === index ? 'gray' : 'black',
-                                fontWeight: selectedItem === item ? 'bold' : 'normal',
+                                color: '#555',
+                                paddingLeft: '10px',
+                                backgroundColor: highlightedIndex === index ? '#E8E8E8' : '#F8F8F8',
+                                borderRadius:'3px',
+                                cursor: 'pointer'
                               },
                             })}
                           >
-                          {item.value}
-                        </div>
-                      ))
-                  : null}
+                            {item.value}
+                          </div>
+                        ))
+                      }
+                    </div>
+                  : null
+                }
             </div>
           )
         }
