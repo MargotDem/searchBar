@@ -23,6 +23,11 @@ class City extends Component {
       key: 'ImBuildingASearchBar',
       locale: 'fr',
       term: input
+    }, {
+      proxy: {
+	  host: 'wtf',
+	  port: 'wtf'
+	}
     })
     .then(response => {
       console.log(response)
@@ -61,7 +66,7 @@ class City extends Component {
               <div>
                 <input
                   {...getInputProps()}
-                  placeholder={arrivalOrDeparture}
+                  placeholder={'...'}
                 />
                   {isOpen
                     ? items && items
@@ -94,7 +99,12 @@ class City extends Component {
 export class DepartureCity extends Component {
   render () {
     return (
-      <City arrivalOrDeparture={"Departure city"} />
+      <div className="input-wrap first">
+        <div className="input-field first">
+          <label>Departure city</label>
+          <City />
+        </div>
+      </div>
     )
   }
 }
@@ -102,7 +112,12 @@ export class DepartureCity extends Component {
 export class ArrivalCity extends Component {
   render () {
     return (
-      <City arrivalOrDeparture={"Arrival city"} />
+      <div className="input-wrap second">
+        <div className="input-field second">
+          <label>Arrival city</label>
+          <City />
+        </div>
+      </div>
     )
   }
 }

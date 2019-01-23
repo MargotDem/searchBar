@@ -1,16 +1,19 @@
 .App {
+  min-height: 100vh;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("https://images.pexels.com/photos/56832/road-asphalt-space-sky-56832.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 
 .ButtonGroup {
-  display: block;
-}
-
-.highlighted {
-  background: orange;
+  /* display: block; */
+  box-shadow: 0 0 20px rgba(0,0,0,.5);
 }
