@@ -243,9 +243,11 @@
     margin: 0;
     width: 100%;
   }
-
   .App form .inner-form .input-wrap.first, .App form .inner-form .input-wrap.second, .App form .inner-form .input-wrap.third, .App form .inner-form .input-wrap.fourth {
     border-radius: 3px 3px 3px 3px !important;
+  }
+  .App form fieldset legend {
+    font-size: 26px;
   }
 }
 
