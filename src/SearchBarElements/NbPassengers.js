@@ -27,14 +27,26 @@ export default class NbPassengers extends Component {
   render () {
     let { nbPassengers } = this.state
     return (
-      <div>
-        <span>{nbPassengers}</span>
-        &nbsp;
-        &nbsp;
-        <span onClick={() => { this.countPassengers(true) }}>+</span>
-        &nbsp;
-        &nbsp;
-        <span onClick={() => { this.countPassengers(false) }}>-</span>
+
+      <div class="input-wrap fourth">
+        <div class="input-field fourth">
+          <label>Passengers</label>
+            <span
+              onClick={() => { this.countPassengers(false) }}
+              class="fas fa-minus-circle"
+            >
+            </span>
+            &nbsp;
+            &nbsp;
+            <span>{nbPassengers}</span>
+            &nbsp;
+            &nbsp;
+            <span
+              onClick={() => { this.countPassengers(true) }}
+              class="fas fa-plus-circle"
+            >
+            </span>
+        </div>
       </div>
     )
   }

@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 
-// import ButtonGroup from './ButtonGroup'
-// import BUTTONS from './Buttons'
-
-import { DepartureCity, ArrivalCity } from './Buttons/Cities'
-// import NbPassengers from './Buttons/NbPassengers'
-// import Search from './Buttons/Search'
-// import { Date } from './Buttons/Dates'
+import { DepartureCity, ArrivalCity } from './SearchBarElements/Cities'
+import Search from './SearchBarElements/Search'
+import NbPassengers from './SearchBarElements/NbPassengers'
+import Date from './SearchBarElements/Dates'
 
 import './App.css';
 import './Template.css';
@@ -23,23 +20,13 @@ class App extends Component {
 
               <ArrivalCity />
 
-              <div class="input-wrap third">
-                <div class="input-field third">
-                  <label>Departure date</label>
-                  <input type="text" placeholder="Date" />
-                </div>
-              </div>
+              <Date />
 
-              <div class="input-wrap fourth">
-                <div class="input-field fourth">
-                  <label>Passengers</label>
-                  <input type="text" placeholder="1" />
-                </div>
-              </div>
+              <NbPassengers />
 
             </div>
 
-            <button class="btn-search" type="button">SEARCH</button>
+            <Search />
 
           </div>
         </form>
